@@ -7,7 +7,7 @@
     "start": "sirv public",
     "test": "jest --watchAll",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
