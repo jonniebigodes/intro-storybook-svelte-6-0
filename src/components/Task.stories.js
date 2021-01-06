@@ -1,53 +1,56 @@
-import Task from './Task.svelte';
-import { action } from '@storybook/addon-actions';
+import Task from "./Task.svelte";
+import { action } from "@storybook/addon-actions";
 
 export const actionsData = {
-  onPinTask: action('onPinTask'),
-  onArchiveTask: action('onArchiveTask'),
+  onPinTask: action("onPinTask"),
+  onArchiveTask: action("onArchiveTask"),
 };
 
 export default {
   component: Task,
-  title: 'Task',
+  title: "Task",
   excludeStories: /.*Data$/,
   // the argTypes are included so that they are properly displayed in the Actions Panel
   argTypes: {
-    onPinTask: { action: 'onPinTask' },
-    onArchiveTask: { action: 'onArchiveTask' }
-  }
+    onPinTask: { action: "onPinTask" },
+    onArchiveTask: { action: "onArchiveTask" },
+  },
+  parameters: {
+    assets: ["image_1.jpg", "image_2.jpg", "image_3.jpg"],
+  },
 };
 
 const Template = ({ onArchiveTask, onPinTask, ...args }) => ({
   Component: Task,
   props: args,
   on: {
-    ...actionsData
-  }
+    ...actionsData,
+  },
 });
 
 export const Default = Template.bind({});
 Default.args = {
   task: {
-    id: '1',
-    title: 'Test Task',
-    state: 'TASK_INBOX',
-    updatedAt: new Date(2018, 0, 1, 9, 0)
-  }
+    id: "1",
+    title: "Test Task",
+    state: "TASK_INBOX",
+    updatedAt: new Date(2018, 0, 1, 9, 0),
+  },
 };
 export const Pinned = Template.bind({});
 Pinned.args = {
   task: {
     ...Default.args.task,
-    state: 'TASK_PINNED'
-  }
+    state: "TASK_PINNED",
+  },
 };
 
 export const Archived = Template.bind({});
 Archived.args = {
   task: {
     ...Default.args.task,
-    state: 'TASK_ARCHIVED'
-  }
+    state: "TASK_ARCHIVED",
+  },
 };
 
 const longTitleString = `This task's name is absurdly large. In fact, I think if I keep going I might end up with content overflow. What will happen? The star that represents a pinned task could have text overlapping. The text could cut-off abruptly when it reaches the star. I hope not!`;
