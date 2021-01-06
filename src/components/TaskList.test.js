@@ -1,9 +1,9 @@
-import TaskList from "./TaskList.svelte";
+import PureTaskList from './PureTaskList.svelte';
 import { render } from "@testing-library/svelte";
-import { WithPinnedTasks } from "./TaskList.stories";
+import { WithPinnedTasks } from "./PureTaskList.stories";
 
-test("TaskList", () => {
-  const { container } = render(TaskList, {
+test("PureTaskList", () => {
+  const { container } = render(PureTaskList, {
     props: WithPinnedTasks.args,
   });
   expect(
