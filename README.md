@@ -2,6 +2,12 @@
 
 ---
 
+
+### Note
+
+Don't forget to include the `rollup-plugin-copy-assets` and it's config when move this to a template
+
+
 # svelte app
 
 This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
